@@ -1,0 +1,109 @@
+Answers
+Section A
+1)	cd  /usr  /bin
+nano internsct
+cp internsctl internsctl.1
+gzip internsctl.1.gz /usr/share/man/man1
+man internsctl
+
+File (intersctl) content: -
+
+        NAME
+Internc –a custom command to report some utilities SYNOPSIS
+ls [OPTION]... [FILE] DESCRIPTION 
+lists the information about the file and the system
+
+-s, -size It gives the size of file.
+-p, permissions It gives the permissions of file.
+ o, owner gives the owner of the file.
+ n. --last-modified gives the last modified date and time of the file
+	         file
+
+2)	nano ‘internsctl --version’
+chmod +x internsctl
+internsctl --version
+
+File (internsctl --version) content: - echo “v0.1.0”
+
+3)	nano ‘internsctl –help’
+chmod +x internsctl
+internsctl --help
+
+File (internsctl --help) content: - help
+
+Section B
+Part 1
+Internsctl memory getinfo :
+nano ‘internsctl memory getinfo’
+chmod +x internsctl\ memory\ getinfo
+./internsctl\ memory\ getinfo
+File (internsctl memory getinfo) content: - free
+Internsctl cpu getinfo :
+nano ‘internsctl cpu getinfo’
+chmod +x internsctl\ cpu\ getinfo
+internsctl\ cpu\ getinfo
+File (internsctl cpu getinfo) content: - lscpu
+Part 2
+Internsctl user create :
+nano ‘internsctl user create’
+chmod +x internsctl\ user\ create
+./internsctl\ user\ create
+File (internsctl user create) content: -
+#!/bin/bash
+if id "$1" &>/dev/null;
+then
+echo "User $1 already exists."
+echo "please chose another username."
+exit
+
+else
+read -p "password"pswd
+useradd -p "Spswd" -d /home/"$1" -m-g users -s /bin/bash "$1"
+echo "SI added"
+          fi
+
+Internsctl user list :
+nano ‘internsctl user list
+chmod +x internsctl\ user\ list
+./internsctl\ user\ list
+File (internsctl user list) content: -
+#!/bin/bash
+cat /etc/passwd
+Internsctl user list :
+nano ‘internsctl user list –sudo-only’
+chmod +x internsctl\ user\ list\ --sudo-only
+./internsctl\ user\ list –sudo-only
+File (internsctl user list --sudo-only) content: -
+#!/bin/bash
+getent group sudo
+
+Part 3
+Internsctl file getinfo <file_name> and inetrnsctl file getinfo [options] <file-name> :
+nano ‘internsctl file getinfo’
+chmod +x internsctl\ file\ getinfo
+./internsctl\ file\ getinfo hello.txt
+./internsctl\ file\ getinfo --size hello.txt
+./internsctl\ file\ getinfo --permissions hello.txt
+./internsctl\ file\ getinfo --owner hello.txt
+./internsctl\ file\ getinfo --last-modified hello.txt
+
+File (internsctl user create) content: -
+#!/bin/bash
+if [[ "$#" -eq 1 ]];
+  then Is -1 $1
+elif [[ "$#" -eq 2 ]];
+  then
+      if [ "$1"-"-s"] || [ "$1" -"size"] 
+         then 
+            wc -c $2
+elif [ "$1"-"-p" ] || [ "$1"-"--permissions" ] 
+    then 
+        Is-1d $2 |awk '{ print $1;}'
+elif [ "$1" "o"] || [ "$1"-"--owner" ] 
+   then 
+       stat -e "%U' $2
+elif [ "SI"-"m"] || [ "$1" = "--last-modified"]  
+   then 
+       stat-c %y' $2
+fi
+fi
