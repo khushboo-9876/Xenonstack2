@@ -1,0 +1,35 @@
+Task-1
+Draw.io diagram for the execution of a linux program in bashscript
+
++-----------------------------------------+
+|                internsctl               |
++-----------------------------------------+
+|                 Functions               |
++-----------------------------------------+
+| + displayManual(): void                 |
+| + getCpuInfo(): void                    |
+| + getMemoryInfo(): void                 |
+| + createUser(username: string): void    |
+| + listUsers(sudoOnly: boolean): void    |
+| + getFileInfo(fileName: string,         |
+|     options: string[]): void            |
++-----------------------------------------+
+|                Main Logic               |
++-----------------------------------------+
+| + case "cpu": getCpuInfo(); break;      |
+| + case "memory": getMemoryInfo(); break;|
+| + case "user":                          |
+|   | + case "create": createUser(); break;|
+|   | + case "list": listUsers(); break;  |
+| + case "file": getFileInfo(); break;    |
+| + case "--version": echo "v0.1.0"; break;|
+| + case "--help": displayManual(); break;|
+| + default: echo "Invalid command"; exit 1;|
++-----------------------------------------+
+
+
+Description
+
+•	Internsctl represents the main script
+•	Functions such as displayManual, getinfo, createuser, Listuser, and get Fileinfo correspond to the functionalities mentioned in the previous responses.
+•	The Main logic section represents the main switch structure for handling different command-line arguments.
